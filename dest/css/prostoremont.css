@@ -1,0 +1,1241 @@
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxWrapper {max-width:none;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:url(/img/overlay.png) repeat 0 0;}
+#colorbox{outline:0;}
+    #cboxTopLeft{width:21px; height:21px; background:url(../images/colorbox/controls.png) no-repeat -101px 0;}
+    #cboxTopRight{width:21px; height:21px; background:url(../images/colorbox/controls.png) no-repeat -130px 0;}
+    #cboxBottomLeft{width:21px; height:21px; background:url(../images/colorbox/controls.png) no-repeat -101px -29px;}
+    #cboxBottomRight{width:21px; height:21px; background:url(../images/colorbox/controls.png) no-repeat -130px -29px;}
+    #cboxMiddleLeft{width:21px; background:url(../images/colorbox/controls.png) left top repeat-y;}
+    #cboxMiddleRight{width:21px; background:url(../images/colorbox/controls.png) right top repeat-y;}
+    #cboxTopCenter{height:21px; background:url(../images/colorbox/border.png) 0 0 repeat-x;}
+    #cboxBottomCenter{height:21px; background:url(../images/colorbox/border.png) 0 -29px repeat-x;}
+    #cboxContent{background:#fff; overflow:hidden;}
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:28px;}
+        #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
+        #cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+        #cboxLoadingOverlay{background:url(../images/colorbox/loading_background.png) no-repeat center center;}
+        #cboxLoadingGraphic{background:url(../images/colorbox/loading.gif) no-repeat center center;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+
+        #cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
+        #cboxPrevious{position:absolute; bottom:0; left:0; background:url(../images/colorbox/controls.png) no-repeat -75px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxPrevious:hover{background-position:-75px -25px;}
+        #cboxNext{position:absolute; bottom:0; left:27px; background:url(../images/colorbox/controls.png) no-repeat -50px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxNext:hover{background-position:-50px -25px;}
+        #cboxClose{position:absolute; bottom:0; right:0; background:url(../images/colorbox/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxClose:hover{background-position:-25px -25px;}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+} /*Reset Style*/
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+    word-spacing: 1px;
+    letter-spacing: 0.2px;
+    font: 13px Arial, Helvetica, "Lucida Grande", serif;
+    color: #000;
+}
+
+#logo, #catnavi, .topnavi, .more-link, .navigation, #sidebartop, #related, #social, #sponsors, .tabs, #allpost, .toolbar, .splitbox, #commentform, #commentabs .idTabs, .postmeta-content .comments, #respond h3, .tag, .footerlinks {
+    display: none;
+}
+
+/* Show URL */
+
+a:link, a:visited {
+    background: transparent;
+    color: #333;
+    text-decoration: none;
+}
+
+a:link[href^="http://"]:after, a[href^="http://"]:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 11px;
+}
+
+a[href^="http://"] {
+    color: #000;
+}
+
+/*Break Page*/
+
+#comments {
+    page-break-before: always;
+} 
+ul.slideshowgallery1 {
+    list-style: none !important;
+    color: #fff;
+}
+
+ul.slideshowgallery1 span {
+    display: none;
+}
+
+#slideshow-wrappergallery1 {
+    position: relative;
+    width: 662px;
+    background: #ffffff;
+    padding: 0 0 0 0;
+    border:;
+    margin: 0;
+    display: none;
+}
+
+#slideshow-wrappergallery1 * {
+    margin: 0;
+    padding: 0;
+}
+
+#slideshow-wrappergallery1 #fullsizegallery1 {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 662px;
+    height: 413px;
+    clear: both;
+    border: none;
+}
+
+#slideshow-wrappergallery1 #informationgallery1 {
+    text-align: left;
+    font-family: Verdana, Arial, Helvetica, sans-serif !important;
+    position: absolute;
+    bottom: 0;
+    width: 662px;
+    height: 0;
+    background: #ffffff;
+    color: #a0a0a0;
+    overflow: hidden;
+    z-index: 300;
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+#slideshow-wrappergallery1 #informationgallery1 h3 {
+    color: #a0a0a0;
+    padding: 4px 8px 3px;
+    margin: 0 !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#slideshow-wrappergallery1 #informationgallery1 p {
+    color: #a0a0a0;
+    padding: 0 8px 8px;
+    margin: 0 !important;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#slideshow-wrappergallery1 #imagegallery1 {
+    width: 662px;
+    no-repeat;
+}
+
+#slideshow-wrappergallery1 #imagegallery1 img {
+    border: none;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#slideshow-wrappergallery1 .imgnav {
+    position: absolute;
+    width: 25%;
+    height: 421px;
+    cursor: pointer;
+    z-index: 250;
+}
+
+#slideshow-wrappergallery1 #imgprevgallery1 {
+    left: 0;
+    background: url('images/left.gif') left center no-repeat;
+}
+
+#slideshow-wrappergallery1 #imgnextgallery1 {
+    right: 0;
+    background: url('images/right.gif') right center no-repeat;
+}
+
+#slideshow-wrappergallery1 #imglinkgallery1 {
+    position: absolute;
+    zoom: 1;
+    background-color: #ffffff;
+    height: 421px;
+    width: 100%;
+    left: 0;
+    z-index: 149;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#slideshow-wrappergallery1 .linkhover {
+    background: transparent url('images/link.gif') center center no-repeat !important;
+    text-indent: -9999px;
+    opacity: .4 !important;
+    filter: alpha(opacity=40) !important;
+}
+
+#slideshow-wrappergallery1 #thumbnailsgallery1 {
+    background: #ffffff;
+}
+
+#slideshow-wrappergallery1 .thumbstop {
+    margin-bottom: 8px !important;
+}
+
+#slideshow-wrappergallery1 .thumbsbot {
+    margin-top: 8px !important;
+}
+
+#slideshow-wrappergallery1 #slideleftgallery1 {
+    float: left;
+    width: 20px;
+    height: 93px;
+    background: url('images/scroll-left.gif') center center no-repeat;
+    background-color: #222;
+}
+
+#slideshow-wrappergallery1 #slideleftgallery1:hover {
+    background-color: #333;
+}
+
+#slideshow-wrappergallery1 #sliderightgallery1 {
+    float: right;
+    width: 20px;
+    height: 93px;
+    background: #222 url('images/scroll-right.gif') center center no-repeat;
+}
+
+#slideshow-wrappergallery1 #sliderightgallery1:hover {
+    background-color: #333;
+}
+
+#slideshow-wrappergallery1 #slideareagallery1 {
+    float: left;
+    position: relative;
+    background: #ffffff;
+    width: 612px;
+    margin: 0 5px;
+    height: 93px;
+    overflow: hidden;
+}
+
+#slideshow-wrappergallery1 #slidergallery1 {
+    position: absolute;
+    width: 1420px !important;
+    left: 0;
+    height: 93px;
+}
+
+#slideshow-wrappergallery1 #slidergallery1 img {
+    cursor: pointer;
+    border: 1px solid #666;
+    padding: 2px;
+    float: left !important;
+}
+
+#slideshow-wrappergallery1 #spinnergallery1 {
+    position: relative;
+    top: 50%;
+    left: 45%;
+    text-align: left;
+}
+
+#slideshow-wrappergallery1 #spinnergallery1 img {
+    border: none;
+}
+ div.wpcf7 {
+    margin: 0;
+    padding: 0;
+}
+
+div.wpcf7-response-output {
+    margin: 2em 0.5em 1em;
+    padding: 0.2em 1em;
+}
+
+div.wpcf7 .screen-reader-response {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #398f14;
+}
+
+div.wpcf7-mail-sent-ng {
+    border: 2px solid #ff0000;
+}
+
+div.wpcf7-spam-blocked {
+    border: 2px solid #ffa500;
+}
+
+div.wpcf7-validation-errors {
+    border: 2px solid #f7e700;
+}
+
+span.wpcf7-form-control-wrap {
+    position: relative;
+}
+
+span.wpcf7-not-valid-tip {
+    color: #f00;
+    font-size: 1em;
+    display: block;
+}
+
+.use-floating-validation-tip span.wpcf7-not-valid-tip {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 100;
+    border: 1px solid #ff0000;
+    background: #fff;
+    padding: .2em .8em;
+}
+
+span.wpcf7-list-item {
+    margin-left: 0.5em;
+}
+
+.wpcf7-display-none {
+    display: none;
+}
+
+div.wpcf7 img.ajax-loader {
+    border: none;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+div.wpcf7 div.ajax-error {
+    display: none;
+}
+
+div.wpcf7 .placeheld {
+    color: #888;
+} html, body {
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+}
+
+html {
+    background: #fff;
+}
+
+body {
+    background: #fff;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: rouble;
+    src: url(rouble-webfont.ttf);
+}
+
+.rouble {
+    font-family: 'rouble';
+}
+
+p {
+    margin: 0;
+    margin-top: -1em;
+    margin-bottom: 1em;
+}
+
+i {
+    color: #6f6f6f;
+}
+
+a {
+    color: #2a7dc0;
+}
+
+a:hover {
+    color: #92d500;
+}
+
+.line {
+    border-bottom: 1px dotted #2A7DC0;
+    text-decoration: none;
+}
+
+.line:hover {
+    border-bottom: 1px dotted #92d500;
+    text-decoration: none;
+}
+
+.infmet1 {
+    color: #83bf09;
+    font-size: 27px;
+}
+
+.infmet {
+    color: rgb(110, 110, 110);
+    font-size: 13px;
+}
+
+.infmetd {
+    font-size: 13px;
+    color: #898989;
+}
+
+#header {
+    background: #fff;
+    background: url('/img/valik.jpg') 0px 55px no-repeat;
+    height: 260px;
+    width: 1060px;
+    margin: auto;
+}
+
+#header-load {
+    width: 966px;
+    margin: auto;
+}
+
+#logo {
+    position: relative;
+    top: 73px;
+    font-size: 34px;
+    color: #034500;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#description {
+    position: relative;
+    top: 100px;
+    font-size: 17px;
+}
+
+#header-info {
+    float: right;
+    position: relative;
+    top: -67px;
+}
+
+#content {
+    /*background: url('/img/uslugi.jpg') 164px 668px no-repeat;*/
+}
+
+#content-care-fix {
+    width: 1024px;
+    margin: auto;
+}
+
+#content-care {
+    background: url('/img/greent.jpg') repeat-x 0px 0px;
+    height: 380px;
+    position: relative;
+    top: -30px;
+}
+
+#content-care-load {
+    width: 966px;
+    margin: auto;
+}
+
+.care-h-text {
+    position: relative;
+    top: 78px;
+    text-align: center;
+    color: #034500;
+    font-size: 34px;
+}
+
+.care-hh-text {
+    color: #fff;
+    font-size: 23px;
+}
+
+.care-hht-text {
+    font-size: 13px;
+    width: 101%;
+}
+
+.care-text {
+    overflow: hidden;
+    width: 966px;
+    position: relative;
+    top: 50px;
+}
+
+.care-column {
+    float: left;
+    width: 21%;
+    margin-right: 5%;
+}
+
+.last {
+    margin-right: 0;
+}
+
+#content-project {
+    width: 1010px;
+    margin: auto;
+}
+
+#content-project-load {
+    width: 966px;
+    margin: auto;
+}
+
+#uslugi-pics {
+    background: url('/img/uslugi.jpg') 0px 0px no-repeat;
+    width: 1015px;
+    height: 151px;
+    margin: auto;
+}
+
+.uslugi-h {
+    overflow: hidden;
+    width: 966px;
+    position: relative;
+    top: 15px;
+}
+
+.uslugi-t {
+    float: left;
+    width: 21%;
+    margin-right: 4%;
+    text-align: center;
+    font-size: 18px;
+}
+
+#tabs_wrapper {
+    width: 422px;
+}
+
+#tabs_container {
+
+}
+
+#tabs {
+    list-style: none;
+    padding: 5px 0 4px 0;
+    margin: 0 0 0 10px;
+    font: 0.75em arial;
+}
+
+#tabs li {
+    display: inline;
+}
+
+#tabs li a {
+
+}
+
+#tabs li a:hover {
+
+}
+
+#tabs li.active a {
+    color: #94d336;
+    text-decoration: none;
+    border-bottom: none;
+    background: url('/img/uk.png') no-repeat scroll 55px 59px transparent;
+    height: 70px;
+    display: block;
+}
+
+#tabs li.active a:hover {
+
+}
+
+#tabs li a.icon_accept {
+    background-image: url(accept.png);
+    background-position: 5px;
+    background-repeat: no-repeat;
+    padding-left: 24px;
+}
+
+#tabs li a.icon_accept:hover {
+    padding-left: 24px;
+}
+
+#tabs_content_container {
+
+}
+
+.tab_content {
+    display: none;
+}
+
+.thumbnails {
+    position: relative;
+    width: 312px;
+    height: 206px;
+    overflow: hidden;
+    float: left;
+    padding: 5px;
+}
+
+.price {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+}
+
+.price-b {
+    letter-spacing: -1px;
+    background: #92d500;
+    padding: 5px;
+}
+
+.views {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+}
+
+.views-b {
+    letter-spacing: -1px;
+    background: #fff;
+    padding: 10px;
+}
+
+/* Потом удалить*/
+.thumb {
+    width: 312px;
+    height: 206px;
+    overflow: hidden;
+    float: left;
+    padding: 5px;
+}
+
+.thumb img {
+    width: 312px;
+    height: 206px;
+}
+
+.cena {
+    background: url('/img/cena.png');
+    top: 0px;
+    width: 136px;
+    height: 33px;
+    font-size: 18px;
+    left: 175px;
+    position: relative;
+}
+
+.cena-t {
+    position: relative;
+    /*right: -10px;*/
+    right: 2px;
+    text-align: right;
+    margin-top: 6px;
+    /*width: 120px;*/
+    height: 21px;
+    font-size: 19px;
+    font-family: "PT Sans Bold", sans-serif;
+    color: #fff;
+    top: 5px;
+}
+
+.vidi {
+    /*background: url('/img/vidi.png');*/
+    background: url('/img/vidi.png') repeat scroll -628% 0% transparent;
+    position: relative;
+    top: 95px;
+    width: 276px;
+    height: 49px;
+    font-size: 18px;
+}
+
+.vidi-t {
+    position: relative;
+    left: 10px;
+    margin-top: 0px;
+    width: 245px;
+    height: 48px;
+    font-size: 18px;
+
+}
+
+/* --- */
+
+#content-wrapper {
+    background-color: #fff;
+    height: auto !important;
+    /*height: 100%;*/
+    margin: auto;
+    /*min-height: 100%;*/
+    width: 966px;
+}
+
+#zayavka {
+    width: 966px;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.zayavka-t {
+    font-size: 18px;
+    text-align: center;
+}
+
+.zyavka-b {
+    background: url('/img/bb.png') no-repeat scroll 0px 0px transparent;
+    text-align: center;
+    width: 308px;
+    height: 92px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.zyavka-form {
+    background: url('/img/bb.png') no-repeat scroll 0px 7px transparent;
+    text-align: center;
+    width: 308px;
+    height: 92px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.zyavka-b a {
+    position: relative;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    top: 24px;
+}
+
+#content-clients {
+    margin-top: 40px;
+}
+
+.clients-h {
+    text-align: center;
+    font-weight: 'PT Sans Bold', sans-serif;
+    font-size: 34px;
+    /*color: #034500;*/
+}
+
+.slide-1 {
+    /* Оболочка слайдера и кнопок */
+    width: 660px;
+}
+
+.slide-1 .slider {
+    /* Оболочка слайдера */
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+    border: #eee solid 10px;
+    position: relative;
+}
+
+.slide-1 .slide {
+    /* Слайд */
+    width: auto;
+    height: 100%;
+}
+
+.sli-links {
+    /* Кнопки смены слайдов */
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sli-links .control-slide {
+    margin: 2px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    text-indent: -9999px;
+    /*background: url(radioBg.png) center bottom no-repeat;*/
+}
+
+.sli-links .control-slide:hover {
+    cursor: pointer;
+    background-position: center center;
+}
+
+.sli-links .control-slide.active {
+    background-position: center top;
+}
+
+.prewbutton, .nextbutton {
+    /* Ссылка "Следующий" и "Предыдущий" */
+    display: block;
+    width: 35px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    text-indent: -999px;
+    background: url(/img/left.png) left center no-repeat;
+    opacity: 0.8;
+    z-index: 3;
+    outline: none !important;
+}
+
+.prewbutton:hover {
+    background: url(/img/left-h.png) left center no-repeat;
+}
+
+.prewbutton {
+    left: 10px;
+}
+
+.nextbutton {
+    right: 10px;
+    background: url(/img/right.png) right center no-repeat;
+}
+
+.nextbutton:hover {
+    background: url(/img/right-h.png) right center no-repeat;
+}
+
+.slide-1 .prewbutton:hover, .nextbutton:hover {
+    opacity: 1;
+}
+
+/* Второй слайдер */
+.slide-2 {
+    width: 930px;
+    font-size: 17px;
+}
+
+.slide-2 .slider {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-2 .slide {
+    padding: 15px 40px;
+}
+
+/* Второй слайдер - конец */
+
+.sample-pr {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#content-sample {
+    height: 660px;
+}
+
+#footer-cleaner {
+    clear: both;
+    height: 25px;
+}
+
+#footer {
+    background: #fff;
+    background-image: url('/img/footer.jpg');
+    background-position: 0% 334px;
+    background-repeat: repeat-x;
+    bottom: 0;
+    height: 440px;
+    line-height: 25px;
+    margin: 0px auto auto auto;
+}
+
+.text-footer {
+    /*margin: 0px auto;
+    width: 50%;*/
+    text-align: center;
+}
+
+.footer-t {
+    font-size: 18px;
+}
+
+.footer-background {
+    background-image: url(/img/footer.jpg);
+}
+
+/* Gallery */
+
+#slideshow-wrappergallery1 {
+    margin: auto;
+    width: 966px !important;
+    height: 435px !important;
+}
+
+#slideshow-wrappergallery1 #fullsizegallery1 {
+    margin: auto;
+    margin-top: 30px;
+    height: 470px !important;
+}
+
+#slideshow-wrappergallery1 #slideareagallery1 {
+    width: 916px !important;
+}
+
+#slideshow-wrappergallery1 #imgprevgallery1 {
+    left: 65px !important;
+    background: url('/img/left.png') no-repeat scroll left center transparent !important;
+}
+
+#slideshow-wrappergallery1 #imgprevgallery1:hover {
+    background: url('/img/left-h.png') no-repeat scroll left center transparent !important;
+}
+
+#slideshow-wrappergallery1 #imgnextgallery1 {
+    right: 65px !important;
+    background: url('/img/right.png') no-repeat scroll right center transparent !important;
+}
+
+#slideshow-wrappergallery1 #imgnextgallery1:hover {
+    background: url('/img/right-h.png') no-repeat scroll right center transparent !important;
+}
+
+#slideshow-wrappergallery1 #slidergallery1 img {
+    border: 2px solid rgba(255, 255, 255, 0.77) !important;
+    box-shadow: 5px 3px 5px -3px #888;
+}
+
+#slideshow-wrappergallery1 #imagegallery1 {
+    width: 966px !important;
+}
+
+#slideshow-wrappergallery1 #fullsizegallery1 {
+    width: 966px !important;
+}
+
+#slideshow-wrappergallery1 #slideleftgallery1 {
+    background: url('/img/fade-l.png') no-repeat scroll center center transparent !important;
+    width: 78px !important;
+    left: 5px;
+    position: absolute;
+    z-index: 1;
+}
+
+#slideshow-wrappergallery1 #sliderightgallery1 {
+    background: url('/img/fade-r.png') no-repeat scroll center center transparent !important;
+    position: absolute;
+    z-index: 1;
+    width: 78px !important;
+    right: 45px;
+}
+
+#slideshow-wrappergallery1 #slidergallery1 img:hover {
+    border: 2px solid #92D500 !important;
+}
+
+#slideshow-wrappergallery1 #imagegallery1 img {
+    box-shadow: 5px 3px 5px -3px #888;
+    border: 2px solid rgba(255, 255, 255, 0.77) !important;
+}
+
+#slideshow-wrappergallery1 #informationgallery1 {
+    color: #C6C6C6;
+    font-family: 'PT Sans', sans-serif !important;
+    left: 155px;
+}
+
+/* test */
+
+.modalDialog > div {
+    /*width: 400px;*/
+    width: 800px;
+    height: auto;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    /*border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);*/
+}
+
+.close {
+    /*background: #606061;*/
+    background: url("/img/close.png") no-repeat rgba(0, 0, 0, 0) !important;
+    /*color: #FFFFFF;*/
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 25px;
+    position: absolute;
+    /*  right: -65px;*/
+    right: -10px;
+    text-align: center;
+    /*  top: -95px;*/
+    top: 85px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    /*-webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;*/
+}
+
+.close {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    height: 1280px !important;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    width: 2000px !important;
+}
+
+/* Модальные окна для форм */
+
+.modalDialog1 {
+    position: fixed;
+    top: -70px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.modalDialog2 {
+    position: fixed;
+    top: -70px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.modalDialog1:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modalDialog2:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modalDialog1 > div {
+    width: 500px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    /*border-radius: 10px;*/
+    /*border: 4px solid #41ACE1 !important;*/
+    /*background: #EEEDED;*/
+    text-align: left !important;
+}
+
+.modalDialog2 > div {
+    width: 500px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    /*border-radius: 10px;*/
+    /*border: 4px solid #41ACE1 !important;*/
+    /*background: #EEEDED;*/
+    text-align: left !important;
+}
+
+.close1 {
+    background: url("/img/close.png") no-repeat rgba(0, 0, 0, 0) !important;
+    padding: 0 !important;
+    color: #EEEDED !important;
+    line-height: 25px !important;
+    position: absolute !important;
+    right: 288px !important;
+    text-align: center !important;
+    top: 120px !important;
+    width: 48px !important;
+    height: 48px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    z-index: 9;
+}
+
+.close1:hover {
+    background: url("/img/close-h.png") no-repeat rgba(0, 0, 0, 0) !important;
+    color: #92D500 !important;
+    width: 48px !important;
+    height: 48px !important;
+}
+
+/* Стили контактных форм нам мешают, вырубает их нафиг */
+
+div.wpcf7 {
+    margin: 10% auto !important;
+    padding: 5px 20px 13px 20px !important;
+}
+
+#openModal1 #openModal p {
+    margin: 0 !important;
+}
+
+#openModal2 #openModal p {
+    margin: 0 !important;
+}
+
+.wpcf7-form p {
+    margin: 0px !important;
+    padding: 10px;
+}
+
+.obrt {
+    font-size: 70px;
+    color: #FFF;
+}
+
+.wpcf7-textarea {
+    color: #96d41a;
+    background: none repeat scroll 0% 0% #000;
+    border: 0px none;
+    padding: 5px;
+    font-size: 20px;
+    border: 5px none;
+    border-radius: 10px;
+}
+
+.wpcf7-text {
+    font-size: 20px;
+    border: 5px none;
+    border-radius: 10px;
+    height: 35px;
+    padding: 5px;
+    background: #000;
+    color: #96d41a;
+}
+
+.wpcf7-submit {
+    text-align: center !important;
+    border: medium none;
+    padding: 0px;
+    background-color: transparent;
+    color: #FFF;
+    position: relative;
+    left: 125px;
+    font-size: 40px;
+    margin: 0px;
+    font-weight: bolder;
+}
+
+.wpcf7-submit:hover {
+    /*color: #92d500;*/
+    color: rgba(201, 254, 87, 1);
+}
+
+.wpcf7-response-output {
+    display: block;
+    color: #FFF;
+    position: relative;
+    font-size: 20px;
+    /*top: -400px;*/
+    top: -640px;
+}
+
+input::-webkit-input-placeholder {
+    color: #92d500;
+}
+
+input[name="your-message"]::-webkit-input-placeholder {
+    color: #92d500;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #92d500;
+}
+
+input:-moz-placeholder {
+    color: #92d500;
+}
+
+.obrt2 {
+    font-size: 54px;
+    color: #FFF;
+}
+
+@media screen and (max-width: 1200px) {
+    .close1 {
+        left: 85%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .close1 {
+        left: 90%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .close1 {
+        left: 95%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .close1 {
+        left: 100%;
+    }
+}
